@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: monitoring-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: monitoring-app
+  template:
+    metadata:
+      labels:
+        app: monitoring-app
+    spec:
+      containers:
+      - name: monitoring-app-container
+        image: 730335544293.dkr.ecr.us-east-2.amazonaws.com/monitoring_app_image:latest
+        ports:
+        - containerPort: 5000
