@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitoring</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>System Monitoring</h1>
+        {% if message %}
+            <div class="alert">{{ message }}</div>
+        {% endif %}
+        <div class="metric">
+            <h2>CPU Usage</h2>
+            <div class="metric-bar">
+                <div class="metric-bar-fill" style="width: {{ cpu_percent }}%;"></div>
+            </div>
+            <p>{{ cpu_percent }}%</p>
+            <p>Total CPU Cores: {{ cpu_count }}</p>
+        </div>        
+        
+        <div class="metric">
+            <h2>RAM Usage</h2>
+            <div class="metric-bar">
+                <div class="metric-bar-fill" style="width: {{ ram_percent }}%;"></div>
+            </div>
+            <p>{{ ram_percent }}%</p>
+            <p>Total RAM: {{ total_ram }} GB</p>
+        </div>
+        
+
+        <div class="metric">
+            <h2>ROM Usage</h2>
+            <div class="metric-bar">
+                <div class="metric-bar-fill" style="width: {{ rom_percent }}%;"></div>
+            </div>
+            <p>{{ rom_percent }}%</p>
+            <p>Total ROM: {{ total_rom }} GB</p>
+        </div>
+        
+
+        <div class="metric">
+            <h2>Wi-Fi Information</h2>
+            <table class="metric-table">
+                <tr>
+                    <th>Interface</th>
+                    <th>Address</th>
+                    <th>Netmask</th>
+                    <th>Broadcast</th>
+                    <th>PTP</th>
+                </tr>
+                {% for interface in wifi_info %}
+                    <tr>
+                        <td>{{ interface.family }}</td>
+                        <td>{{ interface.address }}</td>
+                        <td>{{ interface.netmask }}</td>
+                        <td>{{ interface.broadcast }}</td>
+                        <td>{{ interface.ptp }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <p>DNS : LAN</p>
+        </div>
+        
+
+        <div class="metric">
+            <h2>GPU Usage</h2>
+            {% if gpu_info %}
+                <table class="metric-table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Usage</th>
+                        <th>Total Memory</th>
+                        <th>Used Memory</th>
+                        <th>Free Memory</th>
+                    </tr>
+                    {% for gpu in gpu_info %}
+                        <tr>
+                            <td>{{ gpu.name }}</td>
+                            <td>{{ gpu.usage }}%</td>
+                            <td>{{ gpu.memory_total }} MB</td>
+                            <td>{{ gpu.memory_used }} MB</td>
+                            <td>{{ gpu.memory_free }} MB</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No GPU detected.</p>
+            {% endif %}
+        </div>
+        
+    </div>
+</body>
+</html>
