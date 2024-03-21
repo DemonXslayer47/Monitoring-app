@@ -56,7 +56,7 @@ docker run -d -p 5000:5000 monitoring-app
 ```
 Open a web browser and navigate to http://localhost:5000 to view the monitoring dashboard.
 
-## How it looks :
+## How it looks :![image](https://github.com/DemonXslayer47/Monitoring-app/assets/129634823/35015657-cbb8-4955-88cb-8561cf33fcbc)
 
 **Author :** `[Sreehari Thota (DemonXslayer47)]`
 
