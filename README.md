@@ -25,35 +25,40 @@ To install dependencies, run the following command:
 
    ```bash
    pip install -r requirements.txt
-
+```
 ## Building the Docker Image
 
 To build the Docker image, execute the following command:
 
    ```bash
    docker build -t monitoring-app .
-
+```
 ## Pushing the Docker Image to Amazon ECR
 
 To push the Docker image to Amazon ECR, run the following command:
 
 ```bash
 python ecr.py
-
+```
 ## Deploying the Application to Amazon EKS
 
 To deploy the application to Amazon EKS, execute the following command:
 
 ```bash
 kubectl apply -f deployment.yaml
-
+```
 ## Usage
 
 To start the application, run the following command:
 
 ```bash
 docker run -d -p 5000:5000 monitoring-app
-
+```
 Open a web browser and navigate to http://localhost:5000 to view the monitoring dashboard.
 
-`[Sreehari Thota (DemonXslayer47)]` This README file contains instructions for building the Docker image, pushing it to Amazon ECR, deploying the application to Amazon EKS, and starting the application for usage.
+## How it looks :
+
+**Author :** `[Sreehari Thota (DemonXslayer47)]`
+
+
+This README file contains instructions for building the Docker image, pushing it to Amazon ECR, deploying the application to Amazon EKS, and starting the application for usage.
