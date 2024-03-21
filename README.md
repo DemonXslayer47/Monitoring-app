@@ -16,23 +16,22 @@ Before running this application, ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your_username/monitoring-app.git
+   git clone https://github.com/DemonXslayer47/monitoring-app.git
    cd monitoring-app
 
 ## Installation
 
 To install dependencies, run the following command:
 
-```bash
-pip install -r requirements.txt
-
+   ```bash
+   pip install -r requirements.txt
 
 ## Building the Docker Image
 
 To build the Docker image, execute the following command:
 
-```bash
-docker build -t monitoring-app .
+   ```bash
+   docker build -t monitoring-app .
 
 ## Pushing the Docker Image to Amazon ECR
 
@@ -57,4 +56,4 @@ docker run -d -p 5000:5000 monitoring-app
 
 Open a web browser and navigate to http://localhost:5000 to view the monitoring dashboard.
 
-`[Sreehari Thota (demonxslayer47)]` This README file contains instructions for building the Docker image, pushing it to Amazon ECR, deploying the application to Amazon EKS, and starting the application for usage.
+`[Sreehari Thota (DemonXslayer47)]` This README file contains instructions for building the Docker image, pushing it to Amazon ECR, deploying the application to Amazon EKS, and starting the application for usage.
